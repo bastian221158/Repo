@@ -1,5 +1,3 @@
-Aquí tienes el texto plano del `README.md`. Simplemente copia todo lo que está dentro de la caja:
-
 # Aplicación Node.js y MariaDB con Docker
 
 Este es un proyecto base que ejecuta un servidor web simple con Node.js (Express) conectado a una base de datos MariaDB. Todo el entorno está gestionado por Docker Compose.
@@ -10,7 +8,7 @@ Para ejecutar este proyecto, necesitarás tener instalado:
 
   * [Git](https://www.google.com/search?q=https://git-scm.com/downloads)
   * [Docker](https://www.docker.com/products/docker-desktop/)
-  * [Docker Compose](https://docs.docker.com/compose/install/) (generalmente incluido con Docker Desktop)
+  * [Docker Compose](https://docs.docker.com/compose/install/)
 
 ## Instalación y Ejecución
 
@@ -21,17 +19,15 @@ Sigue estos pasos para descargar y ejecutar el proyecto:
     Abre tu terminal y clona este repositorio de GitHub en tu máquina local:
 
     ```bash
-    git clone <URL_DEL_REPOSITORIO_GITHUB>
+    git clone https://github.com/bastian221158/Repo
     ```
-
-    (Reemplaza `<URL_DEL_REPOSITORIO_GITHUB>` con la URL real de tu proyecto).
 
 2.  **Navegar al Directorio**
 
     Muévete a la carpeta del proyecto que acabas de clonar:
 
     ```bash
-    cd <NOMBRE_DEL_REPOSITORIO>
+    cd Repo
     ```
 
 3.  **Construir e Iniciar los Contenedores**
