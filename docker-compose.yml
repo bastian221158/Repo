@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_HOST=db
+      - DB_USER=usuario
+      - DB_PASSWORD=contrasena
+      - DB_DATABASE=basededatos
+    depends_on:
+      db:
+        condition: service_healthy 
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3000/"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+
+  db:
+    image: mariadb:11.3
+    restart: always
+    environment:
+      - MARIADB_DATABASE=basededatos
+      - MARIADB_USER=usuario
+      - MARIADB_PASSWORD=contrasena 
+      - MARIADB_ROOT_PASSWORD=rootcontra
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mariadb-admin", "ping", "-h", "localhost", "-u", "root", "-p${MARIADB_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+volumes:
+  db_data:
